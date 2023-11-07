@@ -9,15 +9,17 @@ const ingredients = [
 
 const list = document.querySelector("#ingredients");
 
-
 function addListItems(){
-  let newListItem;
+  let newListItem = [];
+  let item;
   for(let i = 0; i < ingredients.length; i++){
-      newListItem = document.createElement('li');
-      newListItem.textContent = ingredients[i];
-      newListItem.classList.add("item");
-      list.append(newListItem);
+    item = document.createElement('li');
+    item.textContent = ingredients[i];
+    item.classList.add("item");
+    newListItem.push(item); 
   }
+
+  list.append(...newListItem);
 }
 
 addListItems();
